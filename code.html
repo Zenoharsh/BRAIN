@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BRAIN Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#fefcff",
+                        "surface-dim": "#d2dbe4",
+                        "surface-container": "#e6eff8",
+                        "surface-bright": "#f6faff",
+                        "primary": "#0059bb",
+                        "tertiary-container": "#67758f",
+                        "on-secondary-container": "#00616d",
+                        "surface-container-highest": "#dbe4ed",
+                        "on-surface": "#141d23",
+                        "on-background": "#141d23",
+                        "tertiary-fixed": "#d6e3ff",
+                        "secondary-fixed": "#9cf0ff",
+                        "tertiary": "#4f5c76",
+                        "primary-container": "#0070ea",
+                        "surface-variant": "#dbe4ed",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e0e9f2",
+                        "on-tertiary-fixed-variant": "#39475f",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed": "#001a41",
+                        "on-primary-fixed-variant": "#004493",
+                        "secondary": "#006875",
+                        "surface-tint": "#005bc0",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface": "#f6faff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f6faff",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-low": "#ecf5fe",
+                        "on-tertiary-fixed": "#0d1c32",
+                        "on-surface-variant": "#414754",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed-dim": "#b9c7e4",
+                        "primary-fixed-dim": "#adc7ff",
+                        "secondary-container": "#00e3fd",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#293138",
+                        "on-error-container": "#93000a",
+                        "outline": "#717786",
+                        "inverse-on-surface": "#e9f2fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "xl": "48px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin": "32px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "button": ["Plus Jakarta Sans"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["14px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "button": ["16px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h1": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bridge-curve {
+            border-bottom-left-radius: 50% 100%;
+            border-bottom-right-radius: 50% 100%;
+        }
+
+        .aurora-bg {
+            background-color: #f6faff;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 89, 187, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(0, 104, 117, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(0, 227, 253, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border-radius: 1rem;
+        }
+
+        .glass-btn {
+            background: linear-gradient(135deg, rgba(0, 89, 187, 0.9) 0%, rgba(0, 104, 117, 0.9) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 89, 187, 0.2);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .glass-btn:hover {
+            box-shadow: 0 6px 20px rgba(0, 89, 187, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .glass-btn-outline {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 89, 187, 0.3);
+            color: #0059bb;
+            transition: all 0.3s ease;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .glass-btn-outline:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(0, 89, 187, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 89, 187, 0.1);
+        }
+    </style>
+</head>
+<body class="aurora-bg text-on-surface font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 !rounded-none !border-t-0 !border-x-0 !bg-white/80">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20 w-full z-50 md:flex hidden">
+<a class="font-h3 text-h3 text-primary" href="#">BRAIN Foundation</a>
+<ul class="flex space-x-8">
+<li><a class="text-primary border-b-2 border-primary pb-1 font-body-md hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#pillar1">Roots</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#pillar2">Last-Mile</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#pillar3">Bihar Mart</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#pillar4">Network</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">About Us</a></li>
+</ul>
+<button class="glass-btn py-3 px-6">Partner With Us</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden pt-24 pb-32">
+<div class="max-w-7xl mx-auto px-8 relative z-10 flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 flex flex-col items-start space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 glass-panel text-primary font-label-sm !rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychiatry</span>
+                Knowledge-to-Impact
+            </div>
+<h1 class="font-h1 text-h1 text-on-surface">Building a knowledge-driven future for Bihar.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                Our vision is to act as a catalyst for sustainable development in Bihar by bridging the gap between rigorous academic research, localized policy advocacy, and grassroots implementation.
+            </p>
+<div class="flex gap-4 pt-4">
+<button class="glass-btn py-3 px-8">Explore Our Pillars</button>
+<button class="glass-btn-outline py-3 px-8">Our Approach</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary-container/20 to-transparent rounded-3xl blur-3xl"></div>
+<!-- Synthesis Flywheel Graphic -->
+<div class="relative z-10 glass-panel p-8 flex flex-col items-center justify-center min-h-[400px]">
+<h3 class="font-h3 text-on-surface mb-8 text-center">The Knowledge-to-Impact Flywheel</h3>
+<div class="relative w-64 h-64">
+<!-- Center Circle -->
+<div class="absolute inset-0 m-auto w-32 h-32 bg-white/90 border border-primary/10 text-primary rounded-full flex flex-col items-center justify-center text-center z-10 shadow-[0_8px_32px_rgba(0,89,187,0.1)] backdrop-blur-md">
+<span class="font-label-sm font-bold text-primary">BRAIN<br/>Ecosystem<br/>Flywheel</span>
+</div>
+<!-- Outer Sections -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 flex flex-col items-center text-center w-32">
+<div class="w-12 h-12 bg-white/90 shadow-sm text-secondary rounded-full flex items-center justify-center mb-2 border border-secondary/10">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Research &amp; Policy</span>
+</div>
+<div class="absolute top-1/2 right-0 translate-x-4 -translate-y-1/2 flex flex-col items-center text-center w-32">
+<div class="w-12 h-12 bg-white/90 shadow-sm text-tertiary rounded-full flex items-center justify-center mb-2 border border-tertiary/10">
+<span class="material-symbols-outlined">nature_people</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Rural Transformation</span>
+</div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 flex flex-col items-center text-center w-32">
+<div class="w-12 h-12 bg-white/90 shadow-sm text-primary rounded-full flex items-center justify-center mb-2 border border-primary/10">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Bihar Mart</span>
+</div>
+<div class="absolute top-1/2 left-0 -translate-x-4 -translate-y-1/2 flex flex-col items-center text-center w-32">
+<div class="w-12 h-12 bg-white/90 shadow-sm text-on-secondary-container rounded-full flex items-center justify-center mb-2 border border-on-secondary-container/10">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Heritage Tours</span>
+</div>
+<!-- Circular Arrows (simplified visual representation) -->
+<svg class="absolute inset-0 w-full h-full text-outline-variant/50 -z-10" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="45" stroke-dasharray="4 4"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Context & Mission -->
+<section class="py-24 relative">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-h2 text-h2 text-on-surface mb-6">The BRAIN Context</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">As a Section 8 not-for-profit, the BRAIN Foundation addresses the critical disconnect between high-level policy formulation and ground-level realities in Bihar.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Traditional -->
+<div class="glass-panel p-10 flex flex-col gap-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex items-center gap-4 border-b border-surface-variant pb-6">
+<div class="w-12 h-12 rounded-full bg-error-container/20 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">call_split</span>
+</div>
+<h3 class="font-h3 text-on-surface">Traditional Intervention</h3>
+</div>
+<ul class="space-y-4 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-1">remove</span>
+<span class="font-body-md text-on-surface-variant">Fragmented, short-term, event-centric. Top-down policy dictation.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-1">remove</span>
+<span class="font-body-md text-on-surface-variant">Highly donor-dependent.</span>
+</li>
+</ul>
+</div>
+<!-- BRAIN Approach -->
+<div class="glass-panel !border-primary/20 p-10 flex flex-col gap-6 relative overflow-hidden group shadow-[0_8px_32px_rgba(0,89,187,0.08)]">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 to-transparent opacity-50"></div>
+<div class="relative z-10 flex items-center gap-4 border-b border-surface-variant pb-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">account_tree</span>
+</div>
+<h3 class="font-h3 text-primary">The BRAIN Approach</h3>
+</div>
+<ul class="space-y-4 flex-1 relative z-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check</span>
+<span class="font-body-md text-on-surface">Integrated ecosystem, long-term, evidence-based focus.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check</span>
+<span class="font-body-md text-on-surface">Bridging systemic policy to last-mile practice.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check</span>
+<span class="font-body-md text-on-surface">Self-sustaining through mission-aligned enterprise (Bihar Mart).</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Pillar 1: Roots -->
+<section class="py-24 relative bg-white/40" id="pillar1">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-h2 text-on-surface mb-4">Pillar 1: Research, Policy &amp; Advocacy (The Roots)</h2>
+<p class="font-body-lg text-on-surface-variant">Undertaking thematic studies, policy research, and innovation-focused analysis. Bringing together researchers, policymakers, practitioners, and civil society.</p>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-center gap-12">
+<!-- Roots Graphic Structure -->
+<div class="relative w-full md:w-1/3 flex flex-col items-center">
+<div class="w-24 h-48 glass-panel !rounded-t-2xl !rounded-b-none border-b-8 border-primary flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary text-4xl">account_balance</span>
+<div class="absolute -bottom-8 w-48 h-16 border-t-4 border-primary/20 rounded-t-full shadow-[0_-10px_20px_rgba(0,89,187,0.05)]"></div>
+</div>
+<div class="flex justify-between w-full mt-8 text-center font-label-sm text-on-surface-variant">
+<span>Raw Data</span>
+<span>Stakeholder Dialogue</span>
+<span>Network of Biharis</span>
+</div>
+</div>
+<!-- Content Cards -->
+<div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 border-l-4 border-l-primary !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2">Know Bihar</h4>
+<p class="text-body-md text-on-surface-variant">Comprehensive, data-driven profiles covering history, economy, culture, and district-level analysis.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-secondary !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2">Bihar Policy Briefs</h4>
+<p class="text-body-md text-on-surface-variant">Short, actionable policy notes designed for policymakers seeking evidence-based guidance.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-tertiary !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2">Research &amp; Reports</h4>
+<p class="text-body-md text-on-surface-variant">In-depth studies and white papers offering rigorous analysis of specific development issues.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-on-secondary-container !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2">Articles &amp; Blogs</h4>
+<p class="text-body-md text-on-surface-variant">Opinion pieces and explainers providing accessible insights into challenges and opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pillar 2: Last-Mile Bridge -->
+<section class="py-24 relative" id="pillar2">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-h2 text-on-surface mb-4">Pillar 2: Rural &amp; Social Transformation</h2>
+<p class="font-body-lg text-on-surface-variant">Policies must not remain confined to documents. BRAIN ensures they translate into tangible improvements in people's everyday lives.</p>
+</div>
+<!-- CSS Bridge Diagram -->
+<div class="glass-panel p-12 mb-16 relative overflow-hidden">
+<div class="flex justify-between items-end mb-8 relative z-10">
+<div class="text-center w-1/4">
+<div class="bg-white/80 border border-primary/20 text-primary p-4 rounded-t-xl font-label-sm shadow-sm font-bold">State Intent /<br/>Policy Documents</div>
+<div class="h-32 bg-primary/5 border-x border-primary/10"></div>
+</div>
+<div class="text-center w-1/4">
+<div class="bg-white/80 border border-secondary/20 text-secondary p-4 rounded-t-xl font-label-sm shadow-sm font-bold">Citizen<br/>Experience</div>
+<div class="h-32 bg-secondary/5 border-x border-secondary/10"></div>
+</div>
+</div>
+<!-- Bridge Arch -->
+<div class="absolute top-24 left-1/4 right-1/4 h-64 border-t-8 border-primary bridge-curve -z-0 shadow-[0_-10px_20px_rgba(0,89,187,0.05)]"></div>
+<!-- Bridge Content -->
+<div class="absolute top-16 left-1/4 right-1/4 flex justify-between px-8 z-20">
+<div class="w-1/3 bg-white/90 shadow-sm border border-outline-variant p-4 rounded-lg text-center m-2 border-t-4 border-t-primary">
+<h5 class="font-bold text-on-surface mb-1 text-sm">Digital Literacy &amp; Access</h5>
+<p class="text-xs text-on-surface-variant leading-tight">Establishing rural centres to train youth and women in basic digital skills, e-governance access, and cyber safety.</p>
+</div>
+<div class="w-1/3 bg-white/90 shadow-sm border border-outline-variant p-4 rounded-lg text-center m-2 border-t-4 border-t-secondary">
+<h5 class="font-bold text-on-surface mb-1 text-sm">Legal Literacy &amp; Rights Awareness</h5>
+<p class="text-xs text-on-surface-variant leading-tight">Conducting awareness camps and basic legal aid clinics on land, labour, and women's rights in vernacular formats.</p>
+</div>
+<div class="w-1/3 bg-white/90 shadow-sm border border-outline-variant p-4 rounded-lg text-center m-2 border-t-4 border-t-tertiary">
+<h5 class="font-bold text-on-surface mb-1 text-sm">Health Literacy &amp; Preventive Care</h5>
+<p class="text-xs text-on-surface-variant leading-tight">Launching behavioural change campaigns (nutrition, sanitation) and setting up periodic mobile health clinics with referral linkages.</p>
+</div>
+</div>
+</div>
+<h3 class="font-h3 text-center text-on-surface mb-8">Deepening Grassroots Impact: Capacity &amp; Livelihoods</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-6 border-t-4 border-t-primary !rounded-t-none">
+<h4 class="font-h3 text-on-surface mb-3 text-lg">Educational Support &amp; Learning Ecosystems</h4>
+<ul class="list-disc pl-4 text-on-surface-variant space-y-2 font-body-md">
+<li>Establishing community learning centres and after-school support to bridge gaps in foundational literacy and numeracy.</li>
+<li>Promoting teacher training workshops, career guidance, and mentorship for rural youth.</li>
+</ul>
+</div>
+<div class="glass-panel p-6 border-t-4 border-t-secondary !rounded-t-none">
+<h4 class="font-h3 text-on-surface mb-3 text-lg">Community Capacity Building</h4>
+<ul class="list-disc pl-4 text-on-surface-variant space-y-2 font-body-md">
+<li>Training local leaders, Self-Help Groups (SHGs), and youth groups in governance participation.</li>
+<li>Building explicit ownership within communities to ensure programme sustainability beyond the NGO's immediate presence.</li>
+</ul>
+</div>
+<div class="glass-panel p-6 border-t-4 border-t-tertiary !rounded-t-none">
+<h4 class="font-h3 text-on-surface mb-3 text-lg">Livelihood &amp; Skill Development</h4>
+<ul class="list-disc pl-4 text-on-surface-variant space-y-2 font-body-md">
+<li>Promoting skill-based training aligned closely with local economies.</li>
+<li>Supporting micro-enterprises, rural entrepreneurs, and facilitating access to credit and digital platforms.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Pillar 3: Bihar Mart -->
+<section class="py-24 relative bg-white/40" id="pillar3">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-h2 text-on-surface mb-4">Pillar 3: Bihar Mart (The Sustainability Engine)</h2>
+<p class="font-body-lg text-on-surface-variant">A purpose-driven, mission-aligned enterprise designed to promote Bihar's traditional products, GI-tagged goods, and rural innovations.</p>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 flex justify-center">
+<!-- Sustainability Loop CSS Diagram -->
+<div class="relative w-80 h-80 glass-panel !rounded-full flex items-center justify-center border-4 border-primary/20 p-8">
+<div class="text-center">
+<h3 class="font-h3 text-primary">The<br/>Sustainability<br/>Loop</h3>
+</div>
+<!-- Arc Items -->
+<div class="absolute -top-6 bg-white shadow-md border border-outline-variant text-primary px-4 py-2 rounded-full font-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">storefront</span> Market Access
+                    </div>
+<div class="absolute -bottom-6 bg-white shadow-md border border-outline-variant text-secondary px-4 py-2 rounded-full font-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">autorenew</span> Reinvested
+                    </div>
+<div class="absolute -left-8 top-1/2 -translate-y-1/2 bg-white shadow-md border border-outline-variant text-tertiary px-4 py-2 rounded-full font-label-sm flex items-center gap-2 rotate-[-90deg] origin-center">
+<span class="material-symbols-outlined text-sm">brush</span> Artisans
+                    </div>
+<div class="absolute -right-8 top-1/2 -translate-y-1/2 bg-white shadow-md border border-outline-variant text-on-secondary-container px-4 py-2 rounded-full font-label-sm flex items-center gap-2 rotate-[90deg] origin-center">
+<span class="material-symbols-outlined text-sm">payments</span> Revenue
+                    </div>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<div class="glass-panel p-6 border-l-4 border-l-primary !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2 text-xl">Market Access</h4>
+<p class="text-body-md text-on-surface-variant">Provides crucial commercial visibility and access to rural artisans and producers.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-secondary !rounded-l-none">
+<h4 class="font-h3 text-on-surface mb-2 text-xl">Cultural Visibility</h4>
+<p class="text-body-md text-on-surface-variant">Enhances the profile of Bihar's economic and cultural assets.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-l-tertiary !rounded-l-none bg-primary/5">
+<h4 class="font-h3 text-on-surface mb-2 text-xl">100% Reinvestment</h4>
+<p class="text-body-md text-on-surface-variant">All proceeds are reinvested solely into the Foundation's research, advocacy, and development activities, perfectly aligning with Section 8 objectives.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pillar 4: Network -->
+<section class="py-24 relative" id="pillar4">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-h2 text-on-surface mb-4">Pillar 4: Know Bihar Heritage Tours (The Network Catalyst)</h2>
+<p class="font-body-lg text-on-surface-variant mb-4"><span class="font-semibold text-on-surface">Target Audience:</span> Students, researchers, professionals, and academic institutions seeking informed learning experiences.</p>
+<p class="font-body-lg text-on-surface-variant"><span class="font-semibold text-on-surface">Educational Focus:</span> Curated engagement programmes focusing on Bihar's history, heritage, economy, and contemporary grassroots realities.</p>
+</div>
+<h3 class="font-h3 text-center text-on-surface mb-8">Outcomes Blueprint</h3>
+<div class="flex flex-col md:flex-row gap-4 items-stretch justify-center">
+<div class="flex-1 glass-panel p-6 text-center flex items-center justify-center">
+<p class="text-body-md text-on-surface-variant">Moving beyond commercial tourism to connect academic knowledge with real-world context.</p>
+</div>
+<div class="hidden md:flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined text-4xl">arrow_right_alt</span>
+</div>
+<div class="flex-1 glass-panel p-6 text-center flex items-center justify-center">
+<p class="text-body-md text-on-surface-variant">Building informed perspectives through curated historical and grassroots exposure.</p>
+</div>
+<div class="hidden md:flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined text-4xl">arrow_right_alt</span>
+</div>
+<div class="flex-1 glass-panel border-primary/20 p-6 text-center flex items-center justify-center bg-primary/5">
+<p class="text-body-md font-medium text-primary">Transforming visitors into long-term network partners, diaspora advocates, and contributors to the broader BRAIN ecosystem.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Section -->
+<section class="py-24 relative bg-white/40">
+<div class="max-w-7xl mx-auto px-8 text-center relative z-10">
+<h2 class="font-h2 text-on-surface mb-6">The Bedrock of Partnership</h2>
+<p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto mb-10">
+            Partner With Us to build a trusted, independent, and knowledge-driven institution dedicated to Bihar's progress.
+        </p>
+<div class="glass-panel p-8 max-w-4xl mx-auto text-left mb-10 border-t-4 border-t-primary !rounded-t-none">
+<p class="mb-4 text-on-surface-variant font-body-md"><span class="font-semibold text-on-surface">Targeting:</span> Seeking to collaborate with mentors, academic institutions, CSR partners, policy bodies, and civil society organisations.</p>
+<p class="text-on-surface-variant font-body-md"><span class="font-semibold text-on-surface">The Commitment:</span> Partnerships are envisioned as long-term engagements to shape Bihar's development discourse and outcomes—not merely funding arrangements.</p>
+</div>
+<button class="glass-btn py-4 px-10 text-lg">Partner With Us</button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="glass-panel !rounded-none !border-x-0 !border-b-0 !bg-white/80">
+<div class="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<h4 class="font-h3 text-on-surface mb-4 text-xl">BRAIN Foundation</h4>
+<p class="font-body-md text-on-surface-variant text-sm">
+                © 2024 Bihar Research And Innovation Network (BRAIN) Foundation. Knowledge-to-Impact: From rigorous research to tangible rural transformation.
+            </p>
+</div>
+<div class="md:col-span-3 flex justify-end gap-12">
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Research &amp; Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Rural Transformation</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Bihar Mart</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Heritage Tours</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Impact Flywheel</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
