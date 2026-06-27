@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="glass-panel !rounded-none !border-x-0 !border-b-0 !bg-white/80">
+    <footer className="glass-panel !rounded-none !border-x-0 !border-b-0">
       <div className="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-1">
           <h4 className="font-h3 text-xl font-semibold text-on-surface mb-4">BRAIN Foundation</h4>

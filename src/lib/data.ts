@@ -26,5 +26,97 @@ export const CMS_DATA = {
     janShiksha: [
       { id: 1, title: 'Night School Initiative', location: 'Darbhanga', date: 'Ongoing', description: 'Providing education to working adults after hours.' },
     ]
+  },
+  about: {
+    whoWeAre: `Bihar Rejuvenation and Innovation Network Foundation (BRAIN Foundation) is a not-for-profit Section 8 organisation dedicated to advancing research, innovation, public policy, education and community development across India.
+Founded with the vision of building a knowledge-driven and inclusive society, it works at the intersection of governance, public welfare, technology, entrepreneurship and sustainable development. The Foundation serves as a platform that connects researchers, policymakers, institutions, communities and young leaders to generate practical solutions for contemporary challenges.
+It undertakes policy research, educational initiatives, social development programmes and community engagement activities that promote evidence-based decision-making and inclusive growth.
+Our work spans across multiple sectors, including governance, education, healthcare, digital literacy, environment, entrepreneurship, agriculture, cultural preservation and sustainable development.`,
+    vision: `To build an innovative, equitable and knowledge-driven Bihar by promoting community-led development, research, public policy and grass root innovation.`,
+    mission: [
+      "Promote research, innovation and evidence-based policymaking.",
+      "Strengthen governance and citizen participation.",
+      "Support education, skill development and leadership initiatives.",
+      "Advance sustainable and inclusive development.",
+      "Foster partnerships between academia, government, civil society and communities.",
+      "Create platforms for dialogue, collaboration and social impact."
+    ],
+    coreCircle: [
+      { name: "Madhusudan Kumar", role: "Operations & Programme Steward" },
+      { name: "Anand Raj", role: "Research & Knowledge Steward" },
+      { name: "Bhanupriya Anand", role: "Legal & Compliance Steward" },
+      { name: "Harsh Kumar", role: "Digital Outreach & Media Steward" }
+    ] as { name: string; role: string }[],
+    corporateInfo: {
+      registeredOffice: "Bihar Rejuvenation and Innovation Network (BRAIN) Foundation\n39, Bardokhar, Halsi, Konag\nLakhisarai – 811311\nBihar, India",
+      email: "brainfoundationbihar@gmail.com",
+      legalName: "Bihar Rejuvenation and Innovation Network Foundation",
+      type: "Section 8 Company (Not-for-Profit)",
+      incorporationDate: "17 June 2026",
+      cin: "U88900BR2026NPL085681",
+      pan: "AAOCB8428Q",
+      scopeOfOperations: "Pan India."
+    }
+  },
+  strategy: {
+    theProblem: {
+      untappedPotential: "Remarkable demographic potential, profound cultural depth, and significant economic possibilities that remain underutilised.",
+      thePolicyVoid: "Bihar remains underrepresented in rigorous policy research. Interventions are fragmented, short-term, or event-centric. Critical need for a credible, knowledge-driven institution."
+    },
+    theApproach: {
+      traditional: "Fragmented, top-down policy dictation, highly donor-dependent.",
+      brainApproach: "Integrated ecosystem, evidence-based focus, bridging systemic policy to last-mile practice, self-sustaining through mission-aligned enterprise."
+    },
+    pillars: [
+      {
+        id: 1,
+        name: "Research, Policy & Advocacy (The Roots)",
+        items: [
+          { title: "Know Bihar", description: "Comprehensive, data-driven profiles covering history, economy, culture, and district-level analysis." },
+          { title: "Bihar Policy Briefs", description: "Short, actionable policy notes designed for policymakers seeking evidence-based guidance." },
+          { title: "Research & Reports", description: "In-depth studies and white papers offering rigorous analysis of specific development issues." },
+          { title: "Articles & Blogs", description: "Opinion pieces and explainers providing accessible insights into challenges and opportunities." }
+        ]
+      },
+      {
+        id: 2,
+        name: "Rural & Social Transformation (Bridging the Last Mile)",
+        items: [
+          { title: "Digital Literacy & Access", description: "Rural centres to train youth/women in basic digital skills, e-governance, and cyber safety." },
+          { title: "Legal Literacy & Rights Awareness", description: "Awareness camps and basic legal aid clinics on land, labour, and women's rights in vernacular formats." },
+          { title: "Health Literacy & Preventive Care", description: "Behavioural change campaigns and periodic mobile health clinics with referral linkages." },
+          { title: "Educational Support", description: "Community learning centres to bridge foundational literacy gaps." },
+          { title: "Community Capacity Building", description: "Training local leaders and SHGs in governance." },
+          { title: "Livelihood & Skill Development", description: "Micro-enterprises, rural entrepreneurs, and access to credit/digital platforms." }
+        ]
+      },
+      {
+        id: 3,
+        name: "Bihar Mart (The Sustainability Engine)",
+        items: [
+          { title: "Purpose", description: "Mission-aligned enterprise promoting Bihar's traditional products and GI-tagged goods." },
+          { title: "Market Access", description: "Provides commercial visibility to rural artisans and producers." },
+          { title: "100% Reinvestment", description: "All proceeds are reinvested solely into the Foundation's research and advocacy." }
+        ]
+      },
+      {
+        id: 4,
+        name: "Know Bihar Heritage Tours (The Network Catalyst)",
+        items: [
+          { title: "Target Audience", description: "Students, researchers, professionals, and academic institutions." },
+          { title: "Outcomes", description: "Moving beyond commercial tourism to connect academic knowledge with real-world context; transforming visitors into long-term network partners and diaspora advocates." }
+        ]
+      }
+    ],
+    partnerships: {
+      targeting: "Mentors, academic institutions, CSR partners, policy bodies.",
+      coreValues: [
+        "Academic integrity",
+        "Transparency",
+        "Inclusivity",
+        "Evidence-based decision-making",
+        "Long-term sustainable impact"
+      ]
+    }
   }
 };
