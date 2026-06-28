@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,11 +10,15 @@
 }
 
 .dark {
-  --color-background: #090b0d; /* Ultra-deep midnight base */
-  --color-on-surface: #f3f4f6; /* Force off-white for headers */
-  --color-on-surface-variant: #9ca3af; /* Force legible gray for descriptions */
+  --color-background: #090b0d;
+  /* Ultra-deep midnight base */
+  --color-on-surface: #f3f4f6;
+  /* Force off-white for headers */
+  --color-on-surface-variant: #9ca3af;
+  /* Force legible gray for descriptions */
   --color-surface: #171717;
-  --background-gradient: linear-gradient(180deg, #090b0d 0%, #11151a 100%); /* High-fidelity ambient gradient transition */
+  --background-gradient: linear-gradient(180deg, #090b0d 0%, #11151a 100%);
+  /* High-fidelity ambient gradient transition */
 }
 
 @theme {
@@ -66,21 +71,27 @@
   --color-inverse-on-surface: #e9f2fb;
 
   /* Font Families */
-  --font-inter: "Inter", sans-serif;
-  --font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
-  --font-h1: var(--font-plus-jakarta-sans);
-  --font-h2: var(--font-plus-jakarta-sans);
-  --font-h3: var(--font-plus-jakarta-sans);
-  --font-body-md: var(--font-inter);
-  --font-body-lg: var(--font-inter);
-  --font-label-sm: var(--font-inter);
-  --font-button: var(--font-plus-jakarta-sans);
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-heading: var(--font-outfit), sans-serif;
+
+  --font-h1: var(--font-heading);
+  --font-h2: var(--font-heading);
+  --font-h3: var(--font-heading);
+  --font-body-md: var(--font-sans);
+  --font-body-lg: var(--font-sans);
+  --font-label-sm: var(--font-sans);
+  --font-button: var(--font-heading);
 }
 
 @layer base {
-  h1, h2, h3, h4 {
+
+  h1,
+  h2,
+  h3,
+  h4 {
     color: var(--color-on-surface);
   }
+
   p {
     color: var(--color-on-surface-variant);
   }
@@ -95,8 +106,8 @@
   .aurora-bg {
     background-color: var(--color-background);
     background-image: radial-gradient(circle at 15% 50%, rgba(0, 89, 187, 0.05) 0%, transparent 50%),
-                      radial-gradient(circle at 85% 30%, rgba(0, 104, 117, 0.05) 0%, transparent 50%),
-                      radial-gradient(circle at 50% 80%, rgba(0, 227, 253, 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 85% 30%, rgba(0, 104, 117, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(0, 227, 253, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
   }
 
@@ -176,6 +187,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }

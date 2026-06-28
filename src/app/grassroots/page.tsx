@@ -234,7 +234,7 @@ export default function GrassrootsPage() {
               className="glass-panel p-8 bg-surface-dim hover:shadow-xl transition-shadow border border-outline-variant/50"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 bg-white dark:bg-white/10 rounded-full flex items-center justify-center shadow-sm">
                   <span className="material-symbols-outlined text-on-surface">handshake</span>
                 </div>
                 <div>

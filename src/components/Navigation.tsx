@@ -66,7 +66,7 @@ export default function Navigation() {
         }`}
       >
         <div className={`mx-auto flex justify-between items-center w-full px-6 md:px-8 transition-all duration-400 ${isCompact ? "h-16" : "h-20"}`}>
-          <Link className={`font-h3 text-xl font-bold transition-colors ${logoColor}`} href="/">BRAIN</Link>
+          <Link className={`font-heading text-2xl tracking-wide font-bold transition-colors ${logoColor}`} href="/">BRAIN</Link>
           
           <ul className="flex space-x-8 md:flex hidden">
             <li><Link className={`font-body-md transition-colors duration-200 ${textColor}`} href="/">Home</Link></li>

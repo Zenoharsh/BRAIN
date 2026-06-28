@@ -23,7 +23,7 @@ export default function AboutPage() {
     { name: "Madhusudan Kumar", role: "Operations", imagePlaceholder: "bg-neutral-800" },
     { name: "Anand Raj", role: "Research", imagePlaceholder: "bg-neutral-700" },
     { name: "Bhanupriya Anand", role: "Legal", imagePlaceholder: "bg-neutral-600" },
-    { name: "Harsh Kumar", role: "Digital Outreach", imagePlaceholder: "bg-neutral-500" },
+    { name: "Harsh Raj", role: "Web developer", imagePlaceholder: "bg-neutral-500" },
   ];
 
   return (
