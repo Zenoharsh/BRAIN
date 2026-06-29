@@ -48,23 +48,32 @@ export default function AboutPage() {
               Our Vision for an <br/><span className="text-primary">Equitable Bihar</span>
             </motion.h1>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-              <motion.div variants={itemVariants}>
-                <h3 className="font-h3 text-2xl font-bold text-on-surface mb-6">The Catalyst</h3>
-                <p className="font-body-md text-lg text-on-surface-variant leading-relaxed">
-                  The BRAIN Foundation was born out of a stark realization: while Bihar is rich in potential and human capital, the gap between high-level policy making and grassroots implementation remains vast. We serve as the catalyst, turning empirical research into actionable developmental strategies.
-                </p>
+            <motion.div 
+              variants={containerVariants}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
+            >
+              <motion.div variants={itemVariants} className="lg:col-span-7 glass-panel p-10 md:p-14 rounded-[2rem] relative overflow-hidden group shadow-lg">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 dark:bg-primary/20 blur-[60px] rounded-bl-full transition-all duration-700 group-hover:scale-[1.5] group-hover:bg-primary/20 dark:group-hover:bg-primary/30" />
+                <motion.h3 variants={itemVariants} className="font-h3 text-3xl font-bold text-on-surface mb-8 relative z-10">Who We Are</motion.h3>
+                <motion.p variants={itemVariants} className="font-body-md text-lg text-on-surface-variant leading-relaxed mb-6 relative z-10">
+                  Bihar Rejuvenation and Innovation Network Foundation (BRAIN Foundation) is a not-for-profit Section 8 organisation dedicated to advancing research, innovation, public policy, education and community development across India.
+                </motion.p>
+                <motion.p variants={itemVariants} className="font-body-md text-lg text-on-surface-variant leading-relaxed relative z-10">
+                  Founded with the vision of building a knowledge-driven and inclusive society, it works at the intersection of governance, public welfare, technology, entrepreneurship and sustainable development. The Foundation serves as a platform that connects researchers, policymakers, institutions, communities and young leaders to generate practical solutions for contemporary challenges.
+                </motion.p>
               </motion.div>
-              <motion.div variants={itemVariants}>
-                <h3 className="font-h3 text-2xl font-bold text-on-surface mb-6">The Approach</h3>
-                <p className="font-body-md text-lg text-on-surface-variant leading-relaxed mb-6">
+
+              <motion.div variants={itemVariants} className="lg:col-span-5 glass-panel p-10 md:p-14 rounded-[2rem] relative overflow-hidden group shadow-lg">
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 dark:bg-secondary/20 blur-[60px] rounded-tr-full transition-all duration-700 group-hover:scale-[1.5] group-hover:bg-secondary/20 dark:group-hover:bg-secondary/30" />
+                <motion.h3 variants={itemVariants} className="font-h3 text-3xl font-bold text-on-surface mb-8 relative z-10">The Approach</motion.h3>
+                <motion.p variants={itemVariants} className="font-body-md text-lg text-on-surface-variant leading-relaxed mb-6 relative z-10">
                   We don't just write reports; we build capacities. By engaging deeply with local communities, deploying targeted digital solutions, and fostering a network of global diaspora, we are laying the groundwork for a robust, self-sustaining ecosystem of growth.
-                </p>
-                <p className="font-body-md text-lg text-on-surface-variant leading-relaxed">
+                </motion.p>
+                <motion.p variants={itemVariants} className="font-body-md text-lg text-on-surface-variant leading-relaxed relative z-10">
                   Our methodologies are data-driven, yet deeply rooted in the cultural and social fabric of the state. We believe in inclusive progress where no citizen is left behind.
-                </p>
+                </motion.p>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* The Core Circle */}
@@ -113,50 +122,50 @@ export default function AboutPage() {
           </section>
 
           {/* Corporate Info Footer */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
+          <motion.section 
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full bg-[#111111] text-[#e0e0e0] p-10 md:p-16 rounded-[2rem] font-mono shadow-2xl relative overflow-hidden border border-[#222222]"
+            className="w-full bg-white dark:bg-[#111111] text-on-surface dark:text-[#e0e0e0] p-10 md:p-16 rounded-[2rem] font-mono shadow-2xl relative overflow-hidden border border-outline-variant/30 dark:border-[#222222]"
           >
             {/* Subtle Terminal Glow */}
             <div className="absolute top-0 left-[20%] w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
             
             <div className="relative z-10">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-[#333333] pb-8">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-outline-variant/30 dark:border-[#333333] pb-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight font-sans">Corporate Identity</h3>
-                  <p className="text-[#888888] text-sm">Official Registration & Compliance Details</p>
+                  <h3 className="text-2xl font-bold text-on-surface dark:text-white mb-2 tracking-tight font-sans">Corporate Identity</h3>
+                  <p className="text-on-surface-variant dark:text-[#888888] text-sm">Official Registration & Compliance Details</p>
                 </div>
-                <div className="mt-4 md:mt-0 px-3 py-1 bg-[#222222] border border-[#444444] rounded text-xs text-[#aaaaaa]">
+                <div className="mt-4 md:mt-0 px-3 py-1 bg-surface-dim dark:bg-[#222222] border border-outline-variant/50 dark:border-[#444444] rounded text-xs text-on-surface-variant dark:text-[#aaaaaa]">
                   STATUS: ACTIVE
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">Entity Name</p>
-                  <p className="text-sm">Bihar Research And Innovation Network (BRAIN) Foundation</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">Legal Name</p>
+                  <p className="text-sm text-on-surface dark:text-[#e0e0e0]">Bihar Rejuvenation and Innovation Network Foundation</p>
                 </div>
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">Registration</p>
-                  <p className="text-sm">Section 8 Company (Not-for-Profit)</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">Type</p>
+                  <p className="text-sm text-on-surface dark:text-[#e0e0e0]">Section 8 Company (Not-for-Profit)</p>
                 </div>
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">Jurisdiction</p>
-                  <p className="text-sm">Patna, Bihar, India</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">Date of Incorporation</p>
+                  <p className="text-sm text-on-surface dark:text-[#e0e0e0]">17 June 2026</p>
                 </div>
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">CIN</p>
-                  <p className="text-sm tracking-wider">U85300BR2026NPLXXXXXX</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">CIN</p>
+                  <p className="text-sm tracking-wider text-on-surface dark:text-[#e0e0e0]">U88900BR2026NPL085681</p>
                 </div>
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">PAN</p>
-                  <p className="text-sm tracking-wider">AABCBXXXXX</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">PAN</p>
+                  <p className="text-sm tracking-wider text-on-surface dark:text-[#e0e0e0]">AAOCB8428Q</p>
                 </div>
                 <div>
-                  <p className="text-[#666666] text-xs uppercase tracking-widest mb-1">Registered Office</p>
-                  <p className="text-sm">Innovation Hub, Patna 800001</p>
+                  <p className="text-on-surface-variant dark:text-[#666666] text-xs uppercase tracking-widest mb-1">Scope of Operations</p>
+                  <p className="text-sm text-on-surface dark:text-[#e0e0e0]">Pan India</p>
                 </div>
               </div>
             </div>

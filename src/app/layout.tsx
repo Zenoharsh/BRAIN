@@ -28,7 +28,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${dmSans.variable} ${outfit.variable} h-full antialiased scroll-smooth font-sans`}
+      className={`${dmSans.variable} ${outfit.variable} antialiased scroll-smooth font-sans`}
     >
       <head>
         <link
