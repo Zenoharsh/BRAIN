@@ -78,8 +78,8 @@ export default function Footer() {
             © {new Date().getFullYear()} BRAIN Foundation. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
