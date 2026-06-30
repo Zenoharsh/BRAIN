@@ -20,10 +20,10 @@ export default function AboutPage() {
   };
 
   const team = [
-    { name: "Madhusudan Kumar", role: "Operations", imagePlaceholder: "bg-neutral-800" },
-    { name: "Anand Raj", role: "Research", imagePlaceholder: "bg-neutral-700" },
-    { name: "Bhanupriya Anand", role: "Legal", imagePlaceholder: "bg-neutral-600" },
-    { name: "Harsh Raj", role: "Web developer", imagePlaceholder: "bg-neutral-500" },
+    { name: "Madhusudan Kumar", role: "Operations", image: "/team/madhusudan.jpeg" },
+    { name: "Anand Raj", role: "Research", image: "/team/anand.jpeg" },
+    { name: "Bhanupriya Anand", role: "Policy Brief", image: "/team/bhanupriya.jpeg" },
+    { name: "Harsh Raj", role: "Web developer", image: "/team/harsh.jpg" },
   ];
 
   return (
@@ -98,10 +98,20 @@ export default function AboutPage() {
                 <motion.div 
                   key={i} 
                   variants={itemVariants}
-                  className="group relative h-[450px] w-full overflow-hidden rounded-xl cursor-pointer bg-black shadow-xl"
+                  className="group relative h-[450px] w-full overflow-hidden rounded-xl cursor-pointer bg-neutral-900 shadow-xl"
                 >
-                  {/* Placeholder for actual image: Using a background color to simulate monochrome -> color transition if images were present */}
-                  <div className={`absolute inset-0 ${member.imagePlaceholder} grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out mix-blend-luminosity group-hover:mix-blend-normal opacity-80 group-hover:opacity-100`} />
+                  {/* Actual Image using Next.js optimized Image component */}
+                  <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out mix-blend-luminosity group-hover:mix-blend-normal opacity-80 group-hover:opacity-100">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center"
+                      onError={(e) => {
+                        // Fallback if image isn't uploaded yet
+                        (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="%23333"><rect width="100%" height="100%"/></svg>';
+                      }}
+                    />
+                  </div>
                   
                   {/* Glassmorphic Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />

@@ -7,12 +7,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   useEffect(() => {
     // Initialize Lenis for buttery smooth, heavy inertia scrolling
     const lenis = new Lenis({
-      duration: 1.5, // Slower duration for a heavier, cinematic feel
+      duration: 1.2, // Slightly faster to prevent trackpad lag/jitter at boundaries
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      wheelMultiplier: 0.8, // Slow down mouse wheel scrolling slightly
-      touchMultiplier: 1.5,
+      smoothWheel: true,
+      wheelMultiplier: 1, // Restore 1:1 wheel mapping for precision trackpads
+      touchMultiplier: 2,
       infinite: false,
     });
 
