@@ -44,7 +44,8 @@ To run the project locally for development:
 To manage content (like Research articles, publications, etc.), navigate to the embedded Sanity Studio at:
 
 - **Local:** `http://localhost:3000/studio`
-- **Production:** `https://your-domain.com/studio`
+- **Production:** `https://brainfoundation.in/studio`(not live yet)
+- **current hosting** `https://brain-iota-three.vercel.app`
 
 ## Corporate Identity
 
