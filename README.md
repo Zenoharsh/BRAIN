@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BRAIN Foundation Website
+
+Welcome to the official repository for the **Bihar Rejuvenation and Innovation Network (BRAIN) Foundation** website. 
+
+The BRAIN Foundation is a not-for-profit Section 8 organisation dedicated to advancing research, innovation, public policy, education, and community development across India.
+
+## Tech Stack
+
+This platform is built with modern, high-performance web technologies:
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) & [Lenis](https://lenis.studiofreight.com/) (Smooth Scrolling)
+- **Content Management:** [Sanity CMS](https://www.sanity.io/) (Headless CMS for Research Publications and Articles)
+- **Deployment:** [Vercel](https://vercel.com)
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally for development:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Zenoharsh/BRAIN.git
+   cd BRAIN
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Set up Environment Variables:**
+   Ensure you have a `.env.local` file in the root of your project containing your Sanity API keys and configuration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-To learn more about Next.js, take a look at the following resources:
+## Content Management (Sanity Studio)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To manage content (like Research articles, publications, etc.), navigate to the embedded Sanity Studio at:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Local:** `http://localhost:3000/studio`
+- **Production:** `https://your-domain.com/studio`
 
-## Deploy on Vercel
+## Corporate Identity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Bihar Rejuvenation and Innovation Network Foundation**
+- **Type:** Section 8 Company (Not-for-Profit)
+- **CIN:** U88900BR2026NPL085681
+- **Registered Office:** 39, Bardokhar, Halsi, Konag, Lakhisarai – 811311, Bihar, India
+- **Email:** brainfoundationbihar@gmail.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+© 2026 BRAIN Foundation. All rights reserved.
