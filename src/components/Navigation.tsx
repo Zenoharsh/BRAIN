@@ -69,17 +69,17 @@ export default function Navigation() {
           <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
             {/* 
               When at the top of the homepage (isTransparentHero), the background is dark video. 
-              We MUST show the dark mode logo, regardless of the system theme. 
+              We MUST show the white logo (which the user named logo-light.png). 
             */}
             {isTransparentHero ? (
-              <img src="/logo-dark.png" alt="BRAIN Logo" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/logo-light.png" alt="BRAIN Logo" className="h-10 md:h-12 w-auto object-contain" />
             ) : (
               <>
-                {/* Standard Light Mode Logo (hidden in dark mode) */}
-                <img src="/logo-light.png" alt="BRAIN Logo" className="h-16 md:h-20 w-auto object-contain block dark:hidden" />
+                {/* Standard Light Mode Logo (black logo on white bg -> logo-dark.png) */}
+                <img src="/logo-dark.png" alt="BRAIN Logo" className="h-10 md:h-12 w-auto object-contain block dark:hidden" />
                 
-                {/* Standard Dark Mode Logo (hidden in light mode) */}
-                <img src="/logo-dark.png" alt="BRAIN Logo" className="h-16 md:h-20 w-auto object-contain hidden dark:block" />
+                {/* Standard Dark Mode Logo (white logo on black bg -> logo-light.png) */}
+                <img src="/logo-light.png" alt="BRAIN Logo" className="h-10 md:h-12 w-auto object-contain hidden dark:block" />
               </>
             )}
           </Link>
