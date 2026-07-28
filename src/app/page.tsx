@@ -24,7 +24,7 @@ export default function HomePage() {
   const btnBorderRadius = useTransform(smoothScrollY, [0, 600], ["28px", "48px"]);
 
   // Parallax drop: push the button down the screen so it meets the Flywheel sooner
-  const btnY = useTransform(smoothScrollY, [0, 600], [0, 300]);
+  const btnY = useTransform(smoothScrollY, [0, 600], [0, 307]);
 
   // The button text fades out
   const textOpacity = useTransform(smoothScrollY, [0, 300], [1, 0]);
@@ -49,7 +49,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-background">
+    <div className="relative min-h-screen flex flex-col">
 
       <Navigation />
 
@@ -94,7 +94,7 @@ export default function HomePage() {
         {/* 1. Cinematic Hero Section (Normal Scroll Flow) */}
         <section className="relative h-screen min-h-[700px] w-full flex flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover dark:brightness-75" src="/hero-bg.mp4" />
+            <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" src="/hero-bg.mp4" />
             {/* Dark overlay for white text contrast */}
             <div className="absolute inset-0 bg-black/30 z-10" />
             {/* Bottom gradient fade into the next section */}
@@ -106,14 +106,14 @@ export default function HomePage() {
             className="relative z-20 text-center px-8 max-w-5xl mx-auto -mt-32"
             style={{ opacity: heroOpacity }}
           >
-            <h1 className="font-heading text-[48px] md:text-[72px] leading-tight font-extrabold text-white tracking-tight drop-shadow-lg">
-              Building a <span className="text-primary-fixed-dim">knowledge-driven</span> future for Bihar.
+            <h1 className="font-heading text-[56px] md:text-[84px] leading-tight font-extrabold text-white tracking-tight drop-shadow-lg mb-6">
+              Bihar <span className="text-primary-fixed-dim">Rejuvenation</span> &<br className="hidden md:block" /> Innovation Network
             </h1>
           </motion.div>
         </section>
 
         {/* 2. Knowledge-to-Impact Flywheel Section (Normal Scroll Flow) */}
-        <section className="relative min-h-[120vh] py-32 overflow-hidden bg-background">
+        <section className="relative min-h-[120vh] py-32 overflow-hidden bg-transparent">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-b from-[#001a41] to-transparent pointer-events-none z-0 opacity-10" />
 
           <div className="max-w-7xl mx-auto px-8 relative z-10 pt-40">
@@ -219,7 +219,7 @@ export default function HomePage() {
         </section>
 
         {/* Mission Snippet */}
-        <section className="py-32 relative bg-background mt-32">
+        <section className="py-32 relative bg-transparent mt-32">
           <div className="absolute inset-0 bg-primary/5 -skew-y-3 origin-top-left z-0" />
           <div className="max-w-5xl mx-auto px-8 relative z-10">
             <motion.div
