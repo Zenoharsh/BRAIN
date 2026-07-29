@@ -8,13 +8,20 @@ export default function SiteBackground() {
   const mouseY = useMotionValue(-1000);
 
   useEffect(() => {
+    let animationFrameId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
   }, [mouseX, mouseY]);
 
   // Increased the hover effect area back up for a wider glow
@@ -84,7 +91,8 @@ export default function SiteBackground() {
         className="absolute inset-0"
         style={{
           WebkitMaskImage: maskImage,
-          maskImage: maskImage
+          maskImage: maskImage,
+          willChange: "mask-image, -webkit-mask-image"
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center">

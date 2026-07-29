@@ -94,7 +94,7 @@ export default function HomePage() {
         {/* 1. Cinematic Hero Section (Normal Scroll Flow) */}
         <section className="relative h-screen min-h-[700px] w-full flex flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" src="/hero-bg.mp4" />
+            <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover transform-gpu will-change-transform" src="/hero-bg.mp4" />
             {/* Dark overlay for white text contrast */}
             <div className="absolute inset-0 bg-black/30 z-10" />
             {/* Bottom gradient fade into the next section */}
