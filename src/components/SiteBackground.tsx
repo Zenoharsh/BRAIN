@@ -47,8 +47,8 @@ export default function SiteBackground() {
           preserveAspectRatio="xMidYMid meet"
         >
           <defs>
-            <pattern id="dot-matrix-base" x="0" y="0" width="1.2" height="1.2" patternUnits="userSpaceOnUse">
-              <circle cx="0.6" cy="0.6" r="0.10" fill="currentColor" />
+            <pattern id="dot-matrix-base" x="0" y="0" width="1.6" height="1.6" patternUnits="userSpaceOnUse">
+              <circle cx="0.8" cy="0.8" r="0.15" fill="currentColor" />
             </pattern>
             <linearGradient id="trail-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#111827" className="dark:stopColor-white" />
@@ -103,9 +103,9 @@ export default function SiteBackground() {
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <pattern id="dot-matrix-hover" x="0" y="0" width="1.2" height="1.2" patternUnits="userSpaceOnUse">
+                <pattern id="dot-matrix-hover" x="0" y="0" width="1.6" height="1.6" patternUnits="userSpaceOnUse">
                   {/* Slightly larger radius for the hover glow effect, but still very sharp */}
-                  <circle cx="0.6" cy="0.6" r="0.15" fill="currentColor" />
+                  <circle cx="0.8" cy="0.8" r="0.22" fill="currentColor" />
                 </pattern>
               </defs>
               <path 

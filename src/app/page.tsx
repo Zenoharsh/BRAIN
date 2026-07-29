@@ -67,7 +67,7 @@ export default function HomePage() {
                 borderRadius: btnBorderRadius,
                 y: btnY,
               }}
-              className="relative flex items-center justify-center bg-gradient-to-br from-[#0059bb] to-[#006875] backdrop-blur-md shadow-[0_0_40px_rgba(0,89,187,0.4)] transition-colors cursor-pointer border border-white/20 overflow-hidden group"
+              className="relative flex items-center justify-center bg-gradient-to-br from-[#0059bb] to-[#006875] shadow-[0_0_40px_rgba(0,89,187,0.4)] transition-colors cursor-pointer border border-white/20 overflow-hidden group"
               onClick={() => {
                 window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
               }}
