@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion, Variants, useScroll, useTransform, useSpring } from 'framer-motion';
@@ -18,13 +18,24 @@ export default function HomePage() {
     restDelta: 0.001
   });
 
-  // Button Morphing (0 to 600px of absolute scroll)
-  const btnWidth = useTransform(smoothScrollY, [0, 600], ["250px", "96px"]);
-  const btnHeight = useTransform(smoothScrollY, [0, 600], ["56px", "96px"]);
-  const btnBorderRadius = useTransform(smoothScrollY, [0, 600], ["28px", "48px"]);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Parallax drop: push the button down the screen so it meets the Flywheel sooner
-  const btnY = useTransform(smoothScrollY, [0, 600], [0, 307]);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Check immediately on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Button Morphing (0 to 600px of absolute scroll on desktop, 900px on mobile for longer journey)
+  const scrollEnd = isMobile ? 900 : 600;
+  const btnWidth = useTransform(smoothScrollY, [0, scrollEnd], [isMobile ? "220px" : "250px", "96px"]);
+  const btnHeight = useTransform(smoothScrollY, [0, scrollEnd], ["56px", "96px"]);
+  const btnBorderRadius = useTransform(smoothScrollY, [0, scrollEnd], ["28px", "48px"]);
+
+  // Parallax drop: push the button down the screen so it meets the Flywheel sooner.
+  // On mobile, the grid stacks into 1 column, shifting the ring center much lower, so we need a larger drop distance.
+  const btnY = useTransform(smoothScrollY, [0, scrollEnd], [0, isMobile ? 540 : 307]);
 
   // The button text fades out
   const textOpacity = useTransform(smoothScrollY, [0, 300], [1, 0]);
@@ -57,7 +68,7 @@ export default function HomePage() {
 
         {/* THE CINEMATIC PAYLOAD TRACK */}
         {/* This track spans from the Hero down exactly to the center of the Flywheel rings. */}
-        <div className="absolute top-[65vh] left-0 right-0 h-[calc(35vh+444px)] pointer-events-none z-50">
+        <div className={`absolute top-[65vh] left-0 right-0 pointer-events-none z-50 ${isMobile ? 'h-[calc(35vh+650px)]' : 'h-[calc(35vh+444px)]'}`}>
           {/* The sticky wrapper catches the button at 50vh and locks it in the center of the viewport */}
           <div className="sticky top-[50vh] flex justify-center items-center pointer-events-auto">
             <motion.button
@@ -103,10 +114,10 @@ export default function HomePage() {
 
           {/* Hero Content */}
           <motion.div
-            className="relative z-20 text-center px-8 max-w-5xl mx-auto -mt-32"
+            className="relative z-20 text-center px-6 md:px-8 max-w-5xl mx-auto -mt-32"
             style={{ opacity: heroOpacity }}
           >
-            <h1 className="font-heading text-[56px] md:text-[84px] leading-tight font-extrabold text-white tracking-tight drop-shadow-lg mb-6">
+            <h1 className="font-heading text-[42px] sm:text-[56px] md:text-[84px] leading-tight font-extrabold text-white tracking-tight drop-shadow-lg mb-6">
               Bihar <span className="text-primary-fixed-dim">Rejuvenation</span> &<br className="hidden md:block" /> Innovation Network
             </h1>
           </motion.div>
@@ -178,9 +189,14 @@ export default function HomePage() {
                   ];
                   const style = styleMap[index];
                   const shortName = pillar.name.split('(')[0].trim();
+                  
+                  // On mobile, the cards stack into 1 column. 
+                  // We add a massive top margin to the 3rd card to carve out an empty space in the exact center of the list 
+                  // so the BRAIN button and orbital rings don't overlap the cards!
+                  const mobileMargin = index === 2 ? "max-sm:mt-[220px]" : "";
 
                   return (
-                    <motion.div variants={nodeVariants} key={pillar.id} className="relative z-10 w-full max-w-[240px] mx-auto transition-all duration-500 group-hover/flywheel:opacity-30 hover:!opacity-100 hover:z-40">
+                    <motion.div variants={nodeVariants} key={pillar.id} className={`relative z-10 w-full max-w-[240px] mx-auto transition-all duration-500 group-hover/flywheel:opacity-30 hover:!opacity-100 hover:z-40 ${mobileMargin}`}>
                       {/* Outer wrapper handles continuous floating to prevent transform conflicts */}
                       <motion.div
                         animate={{ y: [0, -12, 0] }}

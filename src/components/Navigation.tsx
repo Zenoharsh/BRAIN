@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
@@ -11,6 +11,7 @@ export default function Navigation() {
   const { scrollY } = useScroll();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,6 +20,11 @@ export default function Navigation() {
       setIsScrolled(true);
     }
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50 && !isScrolled) {
@@ -84,7 +90,7 @@ export default function Navigation() {
             )}
           </Link>
           
-          <ul className="flex space-x-8 md:flex hidden">
+          <ul className="hidden md:flex space-x-8">
             <li><Link className={`font-body-md transition-colors duration-200 ${textColor}`} href="/">Home</Link></li>
             <li><Link className={`font-body-md transition-colors duration-200 ${textColor}`} href="/research">Research</Link></li>
             <li><Link className={`font-body-md transition-colors duration-200 ${textColor}`} href="/grassroots">Grassroots</Link></li>
@@ -106,9 +112,47 @@ export default function Navigation() {
               </motion.button>
             )}
             <button className={`py-2 px-5 text-sm hidden md:block rounded-full font-bold transition-all ${partnerBtn}`}>Partner</button>
+            
+            {/* Mobile Hamburger Button */}
+            <button 
+              className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full transition-colors ${iconColor} hover:bg-black/5 dark:hover:bg-white/10`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Mobile Menu"
+            >
+              <span className="material-symbols-outlined text-[24px]">
+                {isMobileMenuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
           </div>
         </div>
       </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 top-[64px] z-[9998] md:hidden"
+          >
+            {/* Glassmorphism Background */}
+            <div className="absolute inset-0 bg-white/80 dark:bg-[#090b0d]/90 backdrop-blur-xl border-t border-on-surface-variant/10 dark:border-white/10" />
+            
+            {/* Menu Links */}
+            <div className="relative z-10 flex flex-col items-center justify-start pt-12 space-y-8 h-full pointer-events-auto">
+              <Link href="/" className="font-heading text-2xl font-bold text-on-surface dark:text-white" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+              <Link href="/research" className="font-heading text-2xl font-bold text-on-surface dark:text-white" onClick={() => setIsMobileMenuOpen(false)}>Research</Link>
+              <Link href="/grassroots" className="font-heading text-2xl font-bold text-on-surface dark:text-white" onClick={() => setIsMobileMenuOpen(false)}>Grassroots</Link>
+              <Link href="/about" className="font-heading text-2xl font-bold text-on-surface dark:text-white" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+              <div className="pt-8">
+                <button className="glass-btn py-3 px-8 text-lg font-bold rounded-full w-full">Partner With Us</button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
