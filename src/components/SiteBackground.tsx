@@ -33,12 +33,12 @@ export default function SiteBackground() {
   // Fade in the background only after the user scrolls past the hero video (approx 600px)
   const bgOpacity = useTransform(scrollY, [300, 700], [0, 1]);
   // Use visibility hidden at the top to completely skip browser painting and masking
-  const bgVisibility = useTransform(scrollY, [300, 301], ["hidden", "visible"] as any);
+  const bgVisibility = useTransform(scrollY, [300, 301], ["hidden", "visible"]);
 
   return (
     <motion.div 
       className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-transparent flex items-center justify-center"
-      style={{ opacity: bgOpacity, visibility: bgVisibility }}
+      style={{ opacity: bgOpacity, visibility: bgVisibility as any }}
     >
       {/* 
         BASE LAYER
